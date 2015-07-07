@@ -87,6 +87,7 @@ var buildCardStack = function() {
     if (boardStack.eq(i).html() === "") {
       boardStack.eq(i).html(cardStack[i].rank + cardStack[i].suit);
     }
+
   }
 }
 
