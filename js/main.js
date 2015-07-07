@@ -99,6 +99,18 @@ var buildPlayerStack = function(player) {
   }
 }
 
+var currentPlayer = "1";
+
+var switchPlayer = function() {
+  if (currentPlayer === "1") {
+    currentPlayer = "2";
+    $('.playerTurn').html("PLAYER " + currentPlayer + "'S TURN");
+  } else if (currentPlayer === "2") {
+    currentPlayer = "1";
+    $('.playerTurn').html("PLAYER " + currentPlayer + "'S TURN");
+  }
+}
+
 $('#dealButton').on("click", dealCard);
 
 $('#high').on("click", function() {
@@ -107,7 +119,8 @@ $('#high').on("click", function() {
     buildCardStack();
     dealCard();
   } else {
-    //wrong choice
+    alert("WRONG! Switch players");
+    switchPlayer();
   }
 })
 

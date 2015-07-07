@@ -68,6 +68,12 @@ input {
   position: static;
 }
 
+.playerTurn {
+  width: 1000px;
+  height: 100px;
+  text-align: center;
+  font-size: 80px;
+}
 .controls {
   width: 1000px;
   height: 150px;
