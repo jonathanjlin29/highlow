@@ -65,6 +65,7 @@ input {
   height: 100px;
   display: inline-block;
   margin-left: 5px;
+  position: static;
 }
 
 .controls {
