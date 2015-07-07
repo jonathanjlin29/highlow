@@ -4,3 +4,98 @@
     margin: 0;
   }
 
+.container {
+  margin: 0px auto;
+  width: 1000px;
+  height: 500px;
+  background-color: #83BD2C;
+  border-radius: 10px;
+  /*background: url("../hl.jpg");
+  background-size: 1000px 500px;*/
+}
+
+.deck {
+  border: 1px solid black;
+  float: left;
+  width: 300px;
+  height: 500px;
+}
+
+#deal {
+  border: 1px solid red;
+  width: 250px;
+  height: 250px;
+  margin: 0px auto;
+}
+
+input {
+  width: 100px;
+  height: 100px;
+  margin: 0px auto;
+  position: relative;
+  top: 100px;
+  left: 70px;
+}
+
+#card {
+  border: 1px solid white;
+  width: 250px;
+  height: 250px;
+  margin: 0px auto;
+  font-size: 100px;
+}
+
+.stack {
+  border: 1px solid black;
+  float: right;
+  width: 675px;
+  height: 500px;
+}
+
+.cardstack {
+  border: 1px solid black;
+  width: 675px;
+  height: 100px;
+  margin: 15px 0 15px 0;
+}
+
+.cards {
+  border: 1px solid black;
+  width: 40px;
+  height: 100px;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.controls {
+  width: 1000px;
+  height: 150px;
+  margin: 0px auto;
+  background-color: #4285F4;
+}
+
+.buttons {
+  display: inline-block;
+  width: 300px;
+  height: 100px;
+  border: 1px solid black;
+  margin: 20px 0px 20px 125px;
+  text-align: center;
+}
+
+.playerStacks {
+  width: 1000px;
+  height: 500px;
+  margin: 0px auto;
+  background-color: #959C9C;
+}
+
+.player {
+  display: inline-block;
+  width: 450px;
+  height: 500px;
+  border: 1px solid black;
+  margin: 0 0 0 25px;
+  text-align: center;
+}
+
