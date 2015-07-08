@@ -69,22 +69,28 @@ var currentCard = [];
 
 // Pushes last card from shuffledDeck array to currentCard. Displays currentCard
 var dealCard = function() {
-  currentCard.push(shuffledDeck.pop());
-  console.log("Current card: " + currentCard[0].rank + "" + currentCard[0].suit);
-  upcomingCard = shuffledDeck[shuffledDeck.length - 1];
-  console.log("Upcoming card: " + upcomingCard.rank + upcomingCard.suit);
-  console.log(shuffledDeck.length);
-  $('#card').html(currentCard[0].rank + " " + currentCard[0].suit).addClass(currentCard[0].img);
+  if (currentCard.length === 0) {
+    currentCard.push(shuffledDeck.pop());
+    console.log("Current card: " + currentCard[0].rank + "" + currentCard[0].suit);
+    upcomingCard = shuffledDeck[shuffledDeck.length - 1];
+    console.log("Upcoming card: " + upcomingCard.rank + upcomingCard.suit);
+    console.log(shuffledDeck.length);
+    $('#card').removeClass().addClass(currentCard[0].img);
+  }
 }
 
 var cardStack = [];
+//count for correct guesses;
+var countThree = 0;
 
 var boardStack = $('.cards');
 
 //pushes the currentCard to the cardStack. Displays stack on the board
 var buildCardStack = function() {
   cardStack.push(currentCard.pop());
+  countThree++;
   console.log(cardStack);
+  console.log("Correct guesses:" + countThree);
   for (var i = 0; i < 52; i++) {
     if (boardStack.eq(i).html() === "") {
       boardStack.eq(i).html(cardStack[i].rank + cardStack[i].suit).addClass(cardStack[i].img);
@@ -110,6 +116,9 @@ var switchPlayer = function() {
 var playerOneStack = [];
 var playerTwoStack = [];
 
+var playerOneBoard = $('.playerOneStack');
+var playerTwoBoard = $('.playerTwoStack');
+
 //clear cards on board
 var clearBoardStack = function() {
   for (var i = 0; i < cardStack.length; i++) {
@@ -123,18 +132,30 @@ var clearBoardStack = function() {
 var buildPlayerStack = function() {
   if (currentPlayer === "1") {
     alert("WRONG! Add the board stack to your hand!");
+    countThree = 0;
     playerOneStack.push(currentCard.pop());
     while (cardStack.length != 0) {
       playerOneStack.push(cardStack.pop());
     }
+    for (var i = 0; i < playerOneStack.length; i++) {
+      if (playerOneBoard.eq(i).html() === "") {
+        playerOneBoard.eq(i).html(playerOneStack[i].rank + playerOneStack[i].suit).addClass(playerOneStack[i].img)
+      }
+    }
     console.log("Player " + currentPlayer + "'s stack: " + playerOneStack.length);
   } else if (currentPlayer === "2") {
     alert("WRONG! Add the board stack to your hand!");
+    countThree = 0;
     playerTwoStack.push(currentCard.pop());
     while (cardStack.length != 0) {
-      playerOneStack.push(cardStack.pop());
+      playerTwoStack.push(cardStack.pop());
     }
-    console.log("Player " + currentPlayer + "'s stack: " + playerOneStack.length);
+    for (var i = 0; i < playerTwoStack.length; i++) {
+      if (playerTwoBoard.eq(i).html() === "") {
+        playerTwoBoard.eq(i).html(playerTwoStack[i].rank + playerTwoStack[i].suit).addClass(playerTwoStack[i].img)
+      }
+    }
+    console.log("Player " + currentPlayer + "'s stack: " + playerTwoStack.length);
   }
 }
 
@@ -143,13 +164,13 @@ $('#dealButton').on("click", dealCard);
 
 $('#high').on("click", function() {
   if (upcomingCard.value >= currentCard[0].value) {
-    alert("Cards tie! " + upcomingCard.rank + upcomingCard.suit + " is greater than / equal to " + currentCard[0].rank + currentCard[0].suit + ". Keep going!");
+    alert("Correct! " + upcomingCard.rank + upcomingCard.suit + " is greater than / equal to " + currentCard[0].rank + currentCard[0].suit + ". Keep going!");
     buildCardStack();
     dealCard();
   } else {
     clearBoardStack();
     buildPlayerStack();
-    //stack player card
+    dealCard();
   }
 })
 
@@ -161,7 +182,7 @@ $('#low').on("click", function() {
   } else {
     clearBoardStack();
     buildPlayerStack();
-    //wrong choice
+    dealCard();
   }
 })
 
@@ -171,7 +192,9 @@ $('#red').on("click", function() {
     buildCardStack();
     dealCard();
   } else {
-    //wrong
+    clearBoardStack();
+    buildPlayerStack();
+    dealCard();
   }
 })
 
@@ -181,7 +204,9 @@ $('#black').on("click", function() {
     buildCardStack();
     dealCard();
   } else {
-    //wrong
+    clearBoardStack();
+    buildPlayerStack();
+    dealCard();
   }
 })
 
@@ -192,7 +217,9 @@ $('#in').on("click", function() {
     buildCardStack();
     dealCard();
   } else {
-    //wrong
+    clearBoardStack();
+    buildPlayerStack();
+    dealCard();
   }
 })
 
@@ -203,7 +230,9 @@ $('#out').on("click", function() {
     buildCardStack();
     dealCard();
   } else {
-    //wrong
+    clearBoardStack();
+    buildPlayerStack();
+    dealCard();
   }
 })
 
@@ -213,7 +242,9 @@ $('#spade').on("click", function() {
     buildCardStack();
     dealCard();
   } else {
-    //wrong
+    clearBoardStack();
+    buildPlayerStack();
+    dealCard();
   }
 })
 
@@ -223,7 +254,9 @@ $('#club').on("click", function() {
     buildCardStack();
     dealCard();
   } else {
-    //wrong
+    clearBoardStack();
+    buildPlayerStack();
+    dealCard();
   }
 })
 
@@ -233,7 +266,9 @@ $('#heart').on("click", function() {
     buildCardStack();
     dealCard();
   } else {
-    //wrong
+    clearBoardStack();
+    buildPlayerStack();
+    dealCard();
   }
 })
 
@@ -243,12 +278,16 @@ $('#diamond').on("click", function() {
     buildCardStack();
     dealCard();
   } else {
-    //wrong
+    clearBoardStack();
+    buildPlayerStack();
+    dealCard();
   }
 })
 
 $('#pass').on("click", function() {
-  if (cardStack.length >= 3) {
+  if (countThree >= 3) {
+    alert("Player " + currentPlayer + " passed!")
+    countThree = 0;
     switchPlayer();
   } else {
     alert("SORRY! You haven't guessed correctly 3 times in a row! Keep guessing!");

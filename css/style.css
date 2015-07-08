@@ -6,9 +6,9 @@
 
 .container {
   margin: 0px auto;
-  width: 1000px;
+  width: 1310px;
   height: 500px;
-  border-radius: 10px;
+  border: 1px solid blue;
   /*background: url("../hl.jpg");
   background-size: 1000px 500px;*/
 }
@@ -47,12 +47,12 @@ button {
 .stack {
   border: 1px solid black;
   float: right;
-  width: 675px;
+  width: 1000px;
   height: 500px;
 }
 
-.cardstack {
-  border: 1px solid black;
+.cardstackrow {
+  /*border: 1px solid black;*/
   width: 1000px;
   height: 100px;
   margin: 15px 0 15px 0;
@@ -95,7 +95,7 @@ button {
   width: 1000px;
   height: 500px;
   margin: 0px auto;
-  background-color: #959C9C;
+  /*background-color: #959C9C;*/
 }
 
 .player {
@@ -107,3 +107,8 @@ button {
   text-align: center;
 }
 
+.playerstackrow {
+  width: 450px;
+  height: 100px;
+  border: 1px solid black;
+}
