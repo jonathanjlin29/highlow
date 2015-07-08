@@ -110,14 +110,31 @@ var switchPlayer = function() {
 var playerOneStack = [];
 var playerTwoStack = [];
 
+//clear cards on board
+var clearBoardStack = function() {
+  for (var i = 0; i < cardStack.length; i++) {
+      if (boardStack.eq(i).html() != "") {
+        boardStack.eq(i).html("").removeClass().addClass("cards")
+      }
+    }
+}
+
 //takes entire cardStack and adds it to player's stack
-var buildPlayerStack = function(player) {
+var buildPlayerStack = function() {
   if (currentPlayer === "1") {
-    playerOneStack.push(cardStack);
-    return cardStack = [];
+    alert("WRONG! Add the board stack to your hand!");
+    playerOneStack.push(currentCard.pop());
+    while (cardStack.length != 0) {
+      playerOneStack.push(cardStack.pop());
+    }
+    console.log("Player " + currentPlayer + "'s stack: " + playerOneStack.length);
   } else if (currentPlayer === "2") {
-    playerTwoStack.push(cardStack);
-    return cardStack = [];
+    alert("WRONG! Add the board stack to your hand!");
+    playerTwoStack.push(currentCard.pop());
+    while (cardStack.length != 0) {
+      playerOneStack.push(cardStack.pop());
+    }
+    console.log("Player " + currentPlayer + "'s stack: " + playerOneStack.length);
   }
 }
 
@@ -130,7 +147,8 @@ $('#high').on("click", function() {
     buildCardStack();
     dealCard();
   } else {
-    alert("WRONG! Add the board stack to your hand!");
+    clearBoardStack();
+    buildPlayerStack();
     //stack player card
   }
 })
@@ -141,6 +159,8 @@ $('#low').on("click", function() {
     buildCardStack();
     dealCard();
   } else {
+    clearBoardStack();
+    buildPlayerStack();
     //wrong choice
   }
 })
@@ -227,9 +247,11 @@ $('#diamond').on("click", function() {
   }
 })
 
-$('#pass').on("click"), function() {
+$('#pass').on("click", function() {
   if (cardStack.length >= 3) {
     switchPlayer();
+  } else {
+    alert("SORRY! You haven't guessed correctly 3 times in a row! Keep guessing!");
   }
-}
+})
 
