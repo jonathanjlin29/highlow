@@ -71,6 +71,7 @@ input {
 .playerTurn {
   width: 1000px;
   height: 100px;
+  margin: 0px auto;
   text-align: center;
   font-size: 80px;
 }

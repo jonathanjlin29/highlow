@@ -134,9 +134,85 @@ $('#low').on("click", function() {
   }
 })
 
+$('#red').on("click", function() {
+  if (upcomingCard.color === "red") {
+    alert("Correct! " + upcomingCard.rank + upcomingCard.suit + " is RED. Keep going!");
+    buildCardStack();
+    dealCard();
+  } else {
+    //wrong
+  }
+})
 
+$('#black').on("click", function() {
+  if (upcomingCard.color === "black") {
+    alert("Correct! " + upcomingCard.rank + upcomingCard.suit + " is BLACK. Keep going!");
+    buildCardStack();
+    dealCard();
+  } else {
+    //wrong
+  }
+})
 
+$('#in').on("click", function() {
+  if ((upcomingCard.value < cardStack[cardStack.length-1].value && upcomingCard.value > currentCard[0].value) ||
+    (upcomingCard.value > cardStack[cardStack.length-1].value && upcomingCard.value < currentCard[0].value)) {
+    alert("Correct! " + upcomingCard.rank + upcomingCard.suit + " is between the last 2 cards. Keep going!");
+    buildCardStack();
+    dealCard();
+  } else {
+    //wrong
+  }
+})
 
+$('#out').on("click", function() {
+  if (!((upcomingCard.value < cardStack[cardStack.length-1].value && upcomingCard.value > currentCard[0].value) ||
+    (upcomingCard.value > cardStack[cardStack.length-1].value && upcomingCard.value < currentCard[0].value))) {
+    alert("Correct! " + upcomingCard.rank + upcomingCard.suit + " is outside the last 2 cards. Keep going!");
+    buildCardStack();
+    dealCard();
+  } else {
+    //wrong
+  }
+})
 
+$('#spade').on("click", function() {
+  if (upcomingCard.suit === "♠") {
+    alert("Correct! " + upcomingCard.rank + upcomingCard.suit + " is a ♠. Keep going!");
+    buildCardStack();
+    dealCard();
+  } else {
+    //wrong
+  }
+})
 
+$('#club').on("click", function() {
+  if (upcomingCard.suit === "♣") {
+    alert("Correct! " + upcomingCard.rank + upcomingCard.suit + " is a ♣. Keep going!");
+    buildCardStack();
+    dealCard();
+  } else {
+    //wrong
+  }
+})
+
+$('#heart').on("click", function() {
+  if (upcomingCard.suit === "♥") {
+    alert("Correct! " + upcomingCard.rank + upcomingCard.suit + " is a ♥. Keep going!");
+    buildCardStack();
+    dealCard();
+  } else {
+    //wrong
+  }
+})
+
+$('#diamond').on("click", function() {
+  if (upcomingCard.suit === "♦") {
+    alert("Correct! " + upcomingCard.rank + upcomingCard.suit + " is a ♦. Keep going!");
+    buildCardStack();
+    dealCard();
+  } else {
+    //wrong
+  }
+})
 
