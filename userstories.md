@@ -8,3 +8,10 @@ MVP
 - [x] As a PLAYER, I want the OPPOSING PLAYER TO BUILD their hand of WRONG GUESSES.
 - [x] As a PLAYER, I want to SEE THE OPPOSING PLAYER'S STACK OF WRONG GUESSES.
 - [x] As a PLAYER, I want the OTHER OPPOSING PLAYER to drink every 4 cards collected.
+
+
+Icebox
+
+- [ ] Design a table background that the game is played on
+- [ ] Add effects for every 4 cards collectd to indicate drinking
+- [ ] Add sound for every 4 cards collected to indicate drinking
