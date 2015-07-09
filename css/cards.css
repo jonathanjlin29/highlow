@@ -4,11 +4,10 @@
   cursor:  pointer;
 
   /* size */
-  width:  64px;
-  height: 88px;
+  width:  250px; /* 64px; */
+  height: 250px; /* 88px; */
 
   /* add a "border" */
-  background-color: gray;
   border-radius:    4px;
 
   /* enlarge and center the background */
@@ -16,12 +15,14 @@
   background-position-x: -73px;
   background-position-y: -104px;
   background-repeat:     no-repeat;
-  background-size:       210px;
-  
+  background-size: 210px;
+
   /* hide any text */
   text-indent: 100%;
   white-space: nowrap;
   overflow:    hidden;
+
+  margin: 0px auto;
 }
 
 .card.dA  { background-image: url(../images/playing_cards/AD.svg);  }
@@ -87,7 +88,7 @@
 .card.outline   {
   background-image: none;
   background-color: transparent;
-  
+
   box-sizing: border-box;
   border:     1px dashed gold;
 }

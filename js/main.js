@@ -75,7 +75,7 @@ var dealCard = function() {
     upcomingCard = shuffledDeck[shuffledDeck.length - 1];
     console.log("Upcoming card: " + upcomingCard.rank + upcomingCard.suit);
     console.log(shuffledDeck.length);
-    $('#card').removeClass().addClass(currentCard[0].img);
+    $('#dealtCard').removeClass().addClass(currentCard[0].img);
   }
 }
 
@@ -159,6 +159,20 @@ var buildPlayerStack = function() {
   }
 }
 
+//check if player should drink
+var checkDrink = function() {
+  // if current player's stack % 4 = 0 - DRINK
+  if (currentPlayer === "1") {
+    if (playerOneStack.length % 4 === 0) {
+      alert("You've collected 4 cards. DRINK UP!");
+    }
+  } else if (currentPlayer === "2") {
+    if (playerTwoStack.length % 4 === 0) {
+      alert("You've collected 4 cards. DRINK UP!");
+    }
+  }
+}
+
 $('#dealButton').on("click", dealCard);
 
 
@@ -170,6 +184,7 @@ $('#high').on("click", function() {
   } else {
     clearBoardStack();
     buildPlayerStack();
+    checkDrink();
     dealCard();
   }
 })
@@ -182,6 +197,7 @@ $('#low').on("click", function() {
   } else {
     clearBoardStack();
     buildPlayerStack();
+    checkDrink();
     dealCard();
   }
 })
@@ -194,6 +210,7 @@ $('#red').on("click", function() {
   } else {
     clearBoardStack();
     buildPlayerStack();
+    checkDrink();
     dealCard();
   }
 })
@@ -206,6 +223,7 @@ $('#black').on("click", function() {
   } else {
     clearBoardStack();
     buildPlayerStack();
+    checkDrink();
     dealCard();
   }
 })
@@ -219,6 +237,7 @@ $('#in').on("click", function() {
   } else {
     clearBoardStack();
     buildPlayerStack();
+    checkDrink();
     dealCard();
   }
 })
@@ -232,6 +251,7 @@ $('#out').on("click", function() {
   } else {
     clearBoardStack();
     buildPlayerStack();
+    checkDrink();
     dealCard();
   }
 })
@@ -244,6 +264,7 @@ $('#spade').on("click", function() {
   } else {
     clearBoardStack();
     buildPlayerStack();
+    checkDrink();
     dealCard();
   }
 })
@@ -256,6 +277,7 @@ $('#club').on("click", function() {
   } else {
     clearBoardStack();
     buildPlayerStack();
+    checkDrink();
     dealCard();
   }
 })
@@ -268,6 +290,7 @@ $('#heart').on("click", function() {
   } else {
     clearBoardStack();
     buildPlayerStack();
+    checkDrink();
     dealCard();
   }
 })
@@ -280,6 +303,7 @@ $('#diamond').on("click", function() {
   } else {
     clearBoardStack();
     buildPlayerStack();
+    checkDrink();
     dealCard();
   }
 })

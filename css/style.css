@@ -8,13 +8,12 @@
   margin: 0px auto;
   width: 1310px;
   height: 500px;
-  border: 1px solid blue;
-  /*background: url("../hl.jpg");
-  background-size: 1000px 500px;*/
+  border: 20px solid black;
+  border-radius: 30%;
 }
 
 .deck {
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   float: left;
   width: 300px;
   height: 500px;
@@ -41,7 +40,6 @@ button {
   width: 250px;
   height: 250px;
   margin: 0px auto;
-  font-size: 50px;
 }
 
 .stack {
