@@ -1,16 +1,17 @@
 .card {
   display: inline-block;
-  margin:  0 -80px 0 0;
-  /*margin-bottom: -300px;*/
+  /*margin:  0 -80px 0 0;*/
   cursor:  pointer;
+  /*position: relative;*/
+
 
   /* size */
   width:  128px;
   height: 176px;
 
   /* add a "border" */
-  /*background-color: gray;
-  border-radius:    4px;*/
+  background-color: gray;
+  border-radius:    4px;
 
   /* enlarge and center the background */
   background-image: url(../images/playing_cards/blue.svg);
