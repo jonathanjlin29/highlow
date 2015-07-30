@@ -92,7 +92,7 @@ var buildCardStack = function() {
   console.log(cardStack);
   console.log("Correct guesses:" + countThree);
   for (var i = 0; i < 52; i++) {
-    if (boardStack.eq(i).html() === "") {
+    if (boardStack.eq(i).html() === "" {
       boardStack.eq(i).html(cardStack[i].rank + cardStack[i].suit).addClass(cardStack[i].img);
       return;
     }
@@ -104,12 +104,12 @@ var currentPlayer = "1";
 
 //switches player
 var switchPlayer = function() {
-  if (currentPlayer === "1") {
+  if (currentPlayer === "1" {
     currentPlayer = "2";
-    $('.playerTurn').html("PLAYER " + currentPlayer + "'S TURN");
-  } else if (currentPlayer === "2") {
+    $('.playerTurn').html("PLAYER " + currentPlayer + "'S TURN";
+  } else if (currentPlayer === "2" {
     currentPlayer = "1";
-    $('.playerTurn').html("PLAYER " + currentPlayer + "'S TURN");
+    $('.playerTurn').html("PLAYER " + currentPlayer + "'S TURN";
   }
 }
 
@@ -122,36 +122,36 @@ var playerTwoBoard = $('.playerTwoStack');
 //clear cards on board
 var clearBoardStack = function() {
   for (var i = 0; i < cardStack.length; i++) {
-      if (boardStack.eq(i).html() != "") {
-        boardStack.eq(i).html("").removeClass().addClass("cards")
+      if (boardStack.eq(i).html() != "" {
+        boardStack.eq(i).html("".removeClass().addClass("cards"
       }
     }
 }
 
 //takes entire cardStack and adds it to player's stack
 var buildPlayerStack = function() {
-  if (currentPlayer === "1") {
-    alert("WRONG! Add the board stack to your hand!");
+  if (currentPlayer === "1" {
+    $('status').innerHTML = "WRONG! Add the board stack to your hand!";
     countThree = 0;
     playerOneStack.push(currentCard.pop());
     while (cardStack.length != 0) {
       playerOneStack.push(cardStack.pop());
     }
     for (var i = 0; i < playerOneStack.length; i++) {
-      if (playerOneBoard.eq(i).html() === "") {
+      if (playerOneBoard.eq(i).html() === "" {
         playerOneBoard.eq(i).html(playerOneStack[i].rank + playerOneStack[i].suit).addClass(playerOneStack[i].img)
       }
     }
     console.log("Player " + currentPlayer + "'s stack: " + playerOneStack.length);
-  } else if (currentPlayer === "2") {
-    alert("WRONG! Add the board stack to your hand!");
+  } else if (currentPlayer === "2" {
+     $('status').innerHTML = "WRONG! Add the board stack to your hand!";
     countThree = 0;
     playerTwoStack.push(currentCard.pop());
     while (cardStack.length != 0) {
       playerTwoStack.push(cardStack.pop());
     }
     for (var i = 0; i < playerTwoStack.length; i++) {
-      if (playerTwoBoard.eq(i).html() === "") {
+      if (playerTwoBoard.eq(i).html() === "" {
         playerTwoBoard.eq(i).html(playerTwoStack[i].rank + playerTwoStack[i].suit).addClass(playerTwoStack[i].img)
       }
     }
@@ -162,13 +162,14 @@ var buildPlayerStack = function() {
 //check if player should drink
 var checkDrink = function() {
   // if current player's stack % 4 = 0 - DRINK
-  if (currentPlayer === "1") {
+  if (currentPlayer === "1" {
     if (playerOneStack.length % 4 === 0) {
-      alert("You've collected 4 cards. DRINK UP!");
+      $('status').innerHTML = "You've collected 4 cards. DRINK UP!";
+       
     }
-  } else if (currentPlayer === "2") {
+  } else if (currentPlayer === "2" {
     if (playerTwoStack.length % 4 === 0) {
-      alert("You've collected 4 cards. DRINK UP!");
+      $('status').innerHTML = "You've collected 4 cards. DRINK UP!";
     }
   }
 }
@@ -178,7 +179,7 @@ $('#dealButton').on("click", dealCard);
 
 $('#high').on("click", function() {
   if (upcomingCard.value >= currentCard[0].value) {
-    alert("Correct! " + upcomingCard.rank + upcomingCard.suit + " is greater than / equal to " + currentCard[0].rank + currentCard[0].suit + ". Keep going!");
+    $('status').innerHTML = "Correct! " + upcomingCard.rank + upcomingCard.suit + " is greater than / equal to " + currentCard[0].rank + currentCard[0].suit + ". Keep going!";
     buildCardStack();
     dealCard();
   } else {
@@ -191,7 +192,7 @@ $('#high').on("click", function() {
 
 $('#low').on("click", function() {
   if (upcomingCard.value <= currentCard[0].value) {
-    alert("Correct! " + upcomingCard.rank + upcomingCard.suit + " is lower than / equal to " + currentCard[0].rank + currentCard[0].suit + ". Keep going!");
+    $('status').innerHTML = "Correct! " + upcomingCard.rank + upcomingCard.suit + " is lower than / equal to " + currentCard[0].rank + currentCard[0].suit + ". Keep going!";
     buildCardStack();
     dealCard();
   } else {
@@ -203,8 +204,8 @@ $('#low').on("click", function() {
 })
 
 $('#red').on("click", function() {
-  if (upcomingCard.color === "red") {
-    alert("Correct! " + upcomingCard.rank + upcomingCard.suit + " is RED. Keep going!");
+  if (upcomingCard.color === "red" {
+    $('status').innerHTML = "Correct! " + upcomingCard.rank + upcomingCard.suit + " is RED. Keep going!";
     buildCardStack();
     dealCard();
   } else {
@@ -216,8 +217,8 @@ $('#red').on("click", function() {
 })
 
 $('#black').on("click", function() {
-  if (upcomingCard.color === "black") {
-    alert("Correct! " + upcomingCard.rank + upcomingCard.suit + " is BLACK. Keep going!");
+  if (upcomingCard.color === "black" {
+    $('status').innerHTML = "Correct! " + upcomingCard.rank + upcomingCard.suit + " is BLACK. Keep going!";
     buildCardStack();
     dealCard();
   } else {
@@ -231,7 +232,7 @@ $('#black').on("click", function() {
 $('#in').on("click", function() {
   if ((upcomingCard.value < cardStack[cardStack.length-1].value && upcomingCard.value > currentCard[0].value) ||
     (upcomingCard.value > cardStack[cardStack.length-1].value && upcomingCard.value < currentCard[0].value)) {
-    alert("Correct! " + upcomingCard.rank + upcomingCard.suit + " is between the last 2 cards. Keep going!");
+    $('status').innerHTML = "Correct! " + upcomingCard.rank + upcomingCard.suit + " is between the last 2 cards. Keep going!";
     buildCardStack();
     dealCard();
   } else {
@@ -245,7 +246,7 @@ $('#in').on("click", function() {
 $('#out').on("click", function() {
   if (!((upcomingCard.value < cardStack[cardStack.length-1].value && upcomingCard.value > currentCard[0].value) ||
     (upcomingCard.value > cardStack[cardStack.length-1].value && upcomingCard.value < currentCard[0].value))) {
-    alert("Correct! " + upcomingCard.rank + upcomingCard.suit + " is outside the last 2 cards. Keep going!");
+    $('status').innerHTML = "Correct! " + upcomingCard.rank + upcomingCard.suit + " is outside the last 2 cards. Keep going!";
     buildCardStack();
     dealCard();
   } else {
@@ -257,8 +258,8 @@ $('#out').on("click", function() {
 })
 
 $('#spade').on("click", function() {
-  if (upcomingCard.suit === "♠") {
-    alert("Correct! " + upcomingCard.rank + upcomingCard.suit + " is a ♠. Keep going!");
+  if (upcomingCard.suit === "♠" {
+    $('status').innerHTML = "Correct! " + upcomingCard.rank + upcomingCard.suit + " is a ♠. Keep going!";
     buildCardStack();
     dealCard();
   } else {
@@ -270,8 +271,8 @@ $('#spade').on("click", function() {
 })
 
 $('#club').on("click", function() {
-  if (upcomingCard.suit === "♣") {
-    alert("Correct! " + upcomingCard.rank + upcomingCard.suit + " is a ♣. Keep going!");
+  if (upcomingCard.suit === "♣" {
+    $('status').innerHTML = "Correct! " + upcomingCard.rank + upcomingCard.suit + " is a ♣. Keep going!";
     buildCardStack();
     dealCard();
   } else {
@@ -283,8 +284,8 @@ $('#club').on("click", function() {
 })
 
 $('#heart').on("click", function() {
-  if (upcomingCard.suit === "♥") {
-    alert("Correct! " + upcomingCard.rank + upcomingCard.suit + " is a ♥. Keep going!");
+  if (upcomingCard.suit === "♥" {
+    $('status').innerHTML = "Correct! " + upcomingCard.rank + upcomingCard.suit + " is a ♥. Keep going!";
     buildCardStack();
     dealCard();
   } else {
@@ -296,8 +297,8 @@ $('#heart').on("click", function() {
 })
 
 $('#diamond').on("click", function() {
-  if (upcomingCard.suit === "♦") {
-    alert("Correct! " + upcomingCard.rank + upcomingCard.suit + " is a ♦. Keep going!");
+  if (upcomingCard.suit === "♦" {
+    $('status').innerHTML = "Correct! " + upcomingCard.rank + upcomingCard.suit + " is a ♦. Keep going!";
     buildCardStack();
     dealCard();
   } else {
@@ -310,11 +311,11 @@ $('#diamond').on("click", function() {
 
 $('#pass').on("click", function() {
   if (countThree >= 3) {
-    alert("Player " + currentPlayer + " passed!")
+    $('status').innerHTML = "Player " + currentPlayer + " passed!"
     countThree = 0;
     switchPlayer();
   } else {
-    alert("SORRY! You haven't guessed correctly 3 times in a row! Keep guessing!");
+    $('status').innerHTML = "SORRY! You haven't guessed correctly 3 times in a row! Keep guessing!";
   }
 })
 
